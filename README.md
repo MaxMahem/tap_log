@@ -18,8 +18,8 @@ use tap_log::{TapLog, Level};
 tracing_subscriber::fmt::init();
 
 let number = 42
-    .tap_log(Level::INFO, "my_val") // logs "INFO my_val: 42"
-    .tap_log(Level::DEBUG, "debugging") // logs "DEBUG debugging: 42"
+    .tap_log(Level::INFO, "my_val:") // logs "INFO my_val: 42"
+    .tap_log(Level::DEBUG, "debugging:") // logs "DEBUG debugging: 42"
     .tap_log(Level::INFO, ""); // logs "INFO 42"
 
 assert_eq!(number, 42);

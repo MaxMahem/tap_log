@@ -1,6 +1,6 @@
 pub trait TapLog {
     /// Logs the value of `self` at the specified [`tracing::Level`] with a contextual message,
-    /// in the format `{ctx}: {self}` or `{self}` if `ctx` is empty, then returns `self` unchanged.
+    /// in the format `{ctx} {self}` or `{self}` if `ctx` is empty, then returns `self` unchanged.
     ///
     /// This method is useful for logging values in method chains or pipelines without disrupting
     /// flow. It emits a log message using the appropriate macro from the `tracing` crate,
@@ -10,7 +10,7 @@ pub trait TapLog {
     /// ```rust
     /// use tap_log::{TapLog, Level};
     ///
-    /// let number = 42.tap_log(Level::INFO, "my_val"); // output INFO: my_val: 42
+    /// let number = 42.tap_log(Level::INFO, "my_val:"); // output INFO: my_val: 42
     /// assert_eq!(number, 42);
     /// let number = 42.tap_log(Level::INFO, ""); // output INFO: 42
     /// assert_eq!(number, 42);
@@ -19,7 +19,7 @@ pub trait TapLog {
     where
         Self: std::fmt::Debug + Sized,
     {
-        let space = if ctx.is_empty() { "" } else { ": " };
+        let space = if ctx.is_empty() { "" } else { " " };
         match level {
             tracing::Level::TRACE => tracing::trace!("{ctx}{space}{:?}", self),
             tracing::Level::DEBUG => tracing::debug!("{ctx}{space}{:?}", self),

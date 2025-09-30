@@ -1,6 +1,6 @@
 [package]
 name = "tap_log"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 description = "A lightweight Rust utility trait for inline logging of values in pipelines, using the tracing crate."
 license = "MIT"
