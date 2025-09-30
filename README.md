@@ -13,8 +13,7 @@ This makes it easy to inspect values inside method chains or pipelines without b
 ## Example
 
 ```rust
-use tracing::Level;
-use tap_log::TapLog;
+use tap_log::{TapLog, Level};
 
 tracing_subscriber::fmt::init();
 

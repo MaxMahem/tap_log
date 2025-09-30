@@ -8,8 +8,7 @@ pub trait TapLog {
     ///
     /// # Example
     /// ```rust
-    /// use tracing::Level;
-    /// use tap_log::TapLog;
+    /// use tap_log::{TapLog, Level};
     ///
     /// let number = 42.tap_log(Level::INFO, "my_val"); // output INFO: my_val: 42
     /// assert_eq!(number, 42);
